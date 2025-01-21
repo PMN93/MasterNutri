@@ -28,7 +28,7 @@ const InitPage = () => {
       <div className="flex w-screen h-8 items-center justify-center bg-orange-200 shadow-sm">
         Preencha suas medidas abaixo ↓
       </div>
-      <div className="w-screen min-h-28 bg-red-50 mb-10 border border-black">1</div>
+      {/* <div className="w-screen min-h-28 bg-red-50 mb-10 border border-black">1</div>
       <div className="w-screen min-h-28 bg-red-50 mb-10 border border-black">2</div>
       <div className="w-screen min-h-28 bg-red-50 mb-10 border border-black">3</div>
       <div className="w-screen min-h-28 bg-red-50 mb-10 border border-black">4</div>
@@ -43,7 +43,7 @@ const InitPage = () => {
       <div className="w-screen min-h-28 bg-red-50 mb-10 border border-black">5</div>
       <div className="w-screen min-h-28 bg-red-50 mb-10 border border-black">6</div>
       <div className="w-screen min-h-28 bg-red-50 mb-10 border border-black">7</div>
-      <div className="w-screen min-h-28 bg-red-50 mb-10 border border-black">8</div>
+      <div className="w-screen min-h-28 bg-red-50 mb-10 border border-black">8</div> */}
 
       {openBar == true ? (
         <div className="overflow-x-hidden h-svh bg-white  border font-bold left-0 top-0 z-50 rounded-lg shadow-lg p-4 absolute">    
