@@ -9,12 +9,93 @@ import {
 
 const InitPage = () => {
   const [openBar, setOpenBar] = useState(false);
+  const [genero, setGenero] = useState("");
+  const [selectedItems, setSelectedItems] = useState([]);
+
+  const handleItemClick = (item) => {
+    if (selectedItems.includes(item)) {
+      setSelectedItems(selectedItems.filter((i) => i !== item));
+    } else {
+      setSelectedItems([...selectedItems, item]);
+    }
+  };
+
+  const almoco = [
+    "Frango🍗",
+    "Patinho🥩",
+    "Alcatra🥩",
+    "Carne Moida🥩",
+    "Mandioca🥔",
+    "Carne-Porco🐖",
+    "Batata-Doce🍠",
+    "Tilápia🐟",
+    "Merluza🐟",
+    "Salmão🐟",
+    "Arroz🍚",
+    "Feijão🍲",
+    "Salada🥗",
+    "Macarrão🍝",
+    "Ovo🥚",
+    "Inhame🍠",
+    "Cuscuz🍚",
+    "Batata🥔",
+  ];
+
+  const cafemanha = [
+    "Tapioca + Frango🥙",
+    "Crepioca + Queijo🥞",
+    "Fruta🍎",
+    "Iogurte🥛",
+    "Café☕",
+    "Pão de Queijo🧀",
+    "Pão + Ovo🥖",
+    "Café + Leite☕",
+    "Cuscuz 🍚",
+    "Pão + Queijo🍞",
+    "Pão + Presunto🥓"
+  ];
+
+  const cafetarde = [
+    "Whey🥛",
+    "Fruta🍍",
+    "Cuscuz🍚",
+    "Pão + Ovo🥖",
+    "Tapioca + Frango🥙",
+    "Crepioca + Queijo🥞",
+    "Leite🥛",
+    "Rap10 + Frango🌯",
+    "Ovo🥚",
+    "Sanduíche Frango🥪",
+    "Sanduíche de Peru🥪",
+    "Suco🥤"
+  ];
+
+  const janta = [
+    "Frango🍗",
+    "Patinho🥩",
+    "Alcatra🥩",
+    "Carne Moida🥩",
+    "Mandioca🥔",
+    "Carne-Porco🐖",
+    "Batata-Doce🍠",
+    "Tilápia🐟",
+    "Merluza🐟",
+    "Suco🥤",
+    "Arroz🍚",
+    "Feijão🍲",
+    "Salada🥗",
+    "Macarrão🍝",
+    "Ovo🥚",
+    "Inhame🍠",
+    "Cuscuz🍚",
+    "Batata🥔"
+  ];
 
   return (
     <div
       className={
         openBar == true
-          ? "flex flex-col w-auto h-screen overflow-auto overflow-x-hidden relative bg-blue-50"
+          ? "flex flex-col w-auto h-screen overflow-auto overflow-x-hidden relative"
           : "flex flex-col w-auto h-screen overflow-auto overflow-x-hidden relative"
       }
     >
@@ -51,7 +132,7 @@ const InitPage = () => {
           </div>
         </div>
 
-        <div className="flex flex-col p-5 md:min-w-[50rem] w-96 h-auto border border-gray-200 rounded-[1.2rem] mt-2 shadow-sm items-center justify-center bg-slate-200">
+        <div className="flex flex-col p-5 md:min-w-[50rem] w-96 h-auto rounded-[1.2rem] mt-5 mb-5 shadow-lg border items-center justify-center">
           <div className="flex w-full h-8 border border-gray-200 rounded-[1.2rem] shadow-sm bg-gray-50 mb-5">
             <div className="flex w-[9rem] h-8 border-r-2 border-gray-200 rounded-[1.2rem] bg-orange-500 text-white items-center justify-center">
               Medidas
@@ -72,11 +153,124 @@ const InitPage = () => {
             type="number"
             placeholder="Idade"
           ></input>
+          <select className="border border-gray-300 p-2 rounded-md w-full mb-4">
+            <option value={"Obejtivo"}>Selecione seu objetivo</option>
+            <option value={"Obejtivo"}>Emagrecer</option>
+            <option value={"Obejtivo"}>Ganho de Massa Muscular</option>
+            <option value={"Obejtivo"}>Definição + Massa Muscular</option>
+            <option value={"Obejtivo"}>Definição</option>
+            <option value={"Obejtivo"}>Emagrecer + Massa Muscular</option>
+          </select>
+          <select className="border border-gray-300 p-2 rounded-md w-full mb-4">
+            <option value={"Obejtivo"}>
+              Calorias desejadas para a dieta 🔥{" "}
+            </option>
+            <option value={"Obejtivo"}>Não sei dizer</option>
+            <option value={"Obejtivo"}>1200 a 1500 calorias</option>
+            <option value={"Obejtivo"}>1600 a 1900 caloria</option>
+            <option value={"Obejtivo"}>2000 a 2300 calorias</option>
+            <option value={"Obejtivo"}>2400 a 2700 calorias</option>
+          </select>
+          <div className="flex w-auto items-center justify-center flex-wrap space-x-32">
+            <button
+              className={
+                genero == "masculino"
+                  ? "border border-orange-500 bg-orange-50 text-orange-500 p-4 rounded-lg font-semibold"
+                  : "border border-gray-300 p-4 rounded-lg"
+              }
+              onClick={() => {
+                setGenero("masculino");
+              }}
+            >
+              Masculino
+            </button>
+            <button
+              className={
+                genero == "feminino"
+                  ? "border border-orange-500 bg-orange-50 text-orange-500 p-4 rounded-lg font-semibold"
+                  : "border border-gray-300 p-4 rounded-lg"
+              }
+              onClick={() => {
+                setGenero("feminino");
+              }}
+            >
+              Feminino
+            </button>
+          </div>
         </div>
+
+        <div className="flex flex-col p-5 md:min-w-[50rem] w-96 h-auto rounded-[1.2rem] mb-5 shadow-lg border items-center justify-center">
+          <div className="flex font-bold text-xl mb-10">Café da Manhã ☕</div>
+          <div className="flex items-center justify-center flex-wrap gap-4 ">
+          {cafemanha.map((item) => (
+          <div
+            key={item}
+            className={`flex min-w-[12rem] h-8 border border-gray-300 rounded-[1.2rem] items-center justify-center mb-8 cursor-pointer ${
+              selectedItems.includes(item) ? "bg-orange-200 border border-orange-500" : "bg-white"
+            }`}
+            onClick={() => handleItemClick(item)}
+          >
+            {item}
+          </div>
+        ))}
+          </div>
+        </div>
+
+        <div className="flex flex-col p-5 md:min-w-[50rem] w-96 h-auto rounded-[1.2rem] mb-5 shadow-lg border items-center justify-center">
+          <div className="flex font-bold text-xl mb-10">Almoço 🍽️</div>
+          <div className="flex items-center justify-center flex-wrap gap-4 ">
+          {almoco.map((item) => (
+          <div
+            key={item}
+            className={`flex min-w-[12rem] h-8 border border-gray-300 rounded-[1.2rem] items-center justify-center mb-8 cursor-pointer ${
+              selectedItems.includes(item) ? "bg-orange-200 border border-orange-500" : "bg-white"
+            }`}
+            onClick={() => handleItemClick(item)}
+          >
+            {item}
+          </div>
+        ))}
+          </div>
+        </div>
+
+        <div className="flex flex-col p-5 md:min-w-[50rem] w-96 h-auto rounded-[1.2rem] mb-5 shadow-lg border items-center justify-center">
+          <div className="flex font-bold text-xl mb-10">Lanche da Manhã e Tarde 🥪</div>
+          <div className="flex items-center justify-center flex-wrap gap-4 ">
+          {cafetarde.map((item) => (
+          <div
+            key={item}
+            className={`flex min-w-[12rem] h-8 border border-gray-300 rounded-[1.2rem] items-center justify-center mb-8 cursor-pointer ${
+              selectedItems.includes(item) ? "bg-orange-200 border border-orange-500" : "bg-white"
+            }`}
+            onClick={() => handleItemClick(item)}
+          >
+            {item}
+          </div>
+        ))}
+          </div>
+        </div>
+
+        <div className="flex flex-col p-5 md:min-w-[50rem] w-96 h-auto rounded-[1.2rem] mb-5 shadow-lg border items-center justify-center">
+          <div className="flex font-bold text-xl mb-10">Jantar 🍽️</div>
+          <div className="flex items-center justify-center flex-wrap gap-4 ">
+          {janta.map((item) => (
+          <div
+            key={item}
+            className={`flex min-w-[12rem] h-8 border border-gray-300 rounded-[1.2rem] items-center justify-center mb-8 cursor-pointer ${
+              selectedItems.includes(item) ? "bg-orange-200 border border-orange-500" : "bg-white"
+            }`}
+            onClick={() => handleItemClick(item)}
+          >
+            {item}
+          </div>
+        ))}
+          </div>
+        </div>
+
       </div>
 
       {openBar == true ? (
-        <div className="overflow-x-hidden h-screen bg-white  border font-bold left-0 top-0 z-50 rounded-lg shadow-lg p-4 absolute">
+        <div className="overflow-x-hidden h-screen w-96 bg-white border font-bold left-0 top-0 z-50 rounded-lg shadow-lg p-4 absolute">
           <button
             onClick={() => {
               setOpenBar(false);
