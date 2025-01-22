@@ -122,7 +122,7 @@ const InitPage = () => {
       </div>
 
       <div className="flex flex-col w-screen items-center justify-center">
-        <div className="flex pr-16 pl-16 pt-3 pb-3 w-auto h-auto border border-gray-200 rounded-[1.2rem] mt-2 shadow-sm items-center justify-center flex-wrap space-x-40">
+        <div className="flex pr-16 pl-16 pt-3 pb-3 w-auto h-auto border border-gray-200 rounded-[1.2rem] mt-2 shadow-sm items-center justify-center flex-wrap space-x-32">
           <div className="flex flex-col items-center">
             🍑<p>Ver Dieta</p>
           </div>
