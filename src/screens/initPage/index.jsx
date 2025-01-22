@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import mascote from "../../assets/cenoura.png";
 import zap from "../../assets/zap.png";
+import {PencilSquareIcon} from "@heroicons/react/16/solid";
+import {ArrowDownTrayIcon} from "@heroicons/react/16/solid";
+import { ClockIcon } from "@heroicons/react/24/outline";
 import {
   ArrowRightStartOnRectangleIcon,
   Bars4Icon,
@@ -154,22 +157,22 @@ const InitPage = () => {
             placeholder="Idade"
           ></input>
           <select className="border border-gray-300 p-2 rounded-md w-full mb-4">
-            <option value={"Obejtivo"}>Selecione seu objetivo</option>
-            <option value={"Obejtivo"}>Emagrecer</option>
-            <option value={"Obejtivo"}>Ganho de Massa Muscular</option>
-            <option value={"Obejtivo"}>Definição + Massa Muscular</option>
-            <option value={"Obejtivo"}>Definição</option>
-            <option value={"Obejtivo"}>Emagrecer + Massa Muscular</option>
+            <option value={"Objetivo"}>Selecione seu objetivo</option>
+            <option value={"Objetivo"}>Emagrecer</option>
+            <option value={"Objetivo"}>Ganho de Massa Muscular</option>
+            <option value={"Objetivo"}>Definição + Massa Muscular</option>
+            <option value={"Objetivo"}>Definição</option>
+            <option value={"Objetivo"}>Emagrecer + Massa Muscular</option>
           </select>
           <select className="border border-gray-300 p-2 rounded-md w-full mb-4">
-            <option value={"Obejtivo"}>
+            <option value={"Objetivo"}>
               Calorias desejadas para a dieta 🔥{" "}
             </option>
-            <option value={"Obejtivo"}>Não sei dizer</option>
-            <option value={"Obejtivo"}>1200 a 1500 calorias</option>
-            <option value={"Obejtivo"}>1600 a 1900 caloria</option>
-            <option value={"Obejtivo"}>2000 a 2300 calorias</option>
-            <option value={"Obejtivo"}>2400 a 2700 calorias</option>
+            <option value={"Objetivo"}>Não sei dizer</option>
+            <option value={"Objetivo"}>1200 a 1500 calorias</option>
+            <option value={"Objetivo"}>1600 a 1900 caloria</option>
+            <option value={"Objetivo"}>2000 a 2300 calorias</option>
+            <option value={"Objetivo"}>2400 a 2700 calorias</option>
           </select>
           <div className="flex w-auto items-center justify-center flex-wrap space-x-32">
             <button
@@ -266,6 +269,119 @@ const InitPage = () => {
         ))}
           </div>
         </div>
+
+        <div className="flex flex-col p-5 md:min-w-[50rem] w-96 h-auto rounded-[1.2rem] mb-5 shadow-lg border items-center justify-center">
+          <div className="flex font-bold text-xl mb-10">Treinos e Atividades 🏋🏻‍♀️</div>
+          <div className="flex flex-col w-full items-center justify-center">
+
+
+          <select className="border border-gray-300 p-2 rounded-md w-full mb-4">
+            <option value={"Objetivo"}>
+              Nível de Atividade Física{" "}
+            </option>
+            <option value={"Objetivo"}>Sedentário (pouca ou nenhuma atividade física)</option>
+            <option value={"Objetivo"}>Levemente ativo (exercícios 1 a 3 vezes por semana)</option>
+            <option value={"Objetivo"}>Moderadamente ativo (exercícios de 3 a 5 vezes por semana)</option>
+            <option value={"Objetivo"}>Altamente ativo (exercícios de 5 a 7 dias por semana)</option>
+            <option value={"Objetivo"}>Extremamente ativo (exercícios todos dias e faz trabalho braçal)</option>
+            </select>
+
+
+            <select className="border border-gray-300 p-2 rounded-md w-full mb-4">
+            <option value={"Objetivo"}>
+              Deseja treino?{" "}
+            </option>
+            <option value={"Objetivo"}>Sim, treino na academia</option>
+            <option value={"Objetivo"}>Sim, treino em casa</option>
+            <option value={"Objetivo"}>Não</option>
+          </select>
+          </div>
+        </div>
+
+        <div className="flex flex-col p-5 md:min-w-[50rem] w-96 h-auto rounded-[1.2rem] mb-5 shadow-lg border items-center justify-center">
+          <div className="flex font-bold text-xl mb-10">Adicionais na Dieta 🥗</div>
+          <div className="flex flex-col w-full items-center justify-center">
+          <select className="border border-gray-300 p-2 rounded-md w-full mb-4">
+            <option value={"Objetivo"}>
+              Horários de cada refeição{" "}
+            </option>
+              <option value={"Objetivo"}>Tenho meu próprio horário</option>
+              <option value={"Objetivo"}>05:30, 08:30, 12:00, 15:00, 19:00</option>
+              <option value={"Objetivo"}>06:00, 09:00, 12:00, 15:00, 19:00</option>
+              <option value={"Objetivo"}>06:30, 09:30, 13:00, 16:00, 20:00</option>
+              <option value={"Objetivo"}>07:00, 10:00, 12:30, 15:30, 19:30</option>
+              <option value={"Objetivo"}>07:30, 10:30, 12:00, 15:00, 19:00</option>
+              <option value={"Objetivo"}>08:00, 11:00, 13:30, 16:30, 20:30</option>
+              <option value={"Objetivo"}>09:00, 11:00, 13:00, 16:00, 21:00</option>
+            </select>
+            <select className="border border-gray-300 p-2 rounded-md w-full mb-4">
+            <option value={"Objetivo"}>
+              Chocolate na dieta?{" "}
+              </option>
+              <option value={"Objetivo"}>Não, obrigado</option>
+              <option value={"Objetivo"}>Sim, um Bis 🍫</option>
+              <option value={"Objetivo"}>Sim, um Prestígio 🍫</option>
+              <option value={"Objetivo"}>Sim, um Trento 🍫</option>
+              <option value={"Objetivo"}>Sim, um Baton 🍫</option>
+              <option value={"Objetivo"}>Sim, um Chokito 🍫</option>
+              <option value={"Objetivo"}>Sim, um Sonho de Valsa 🍫</option>
+          </select>
+          </div>
+        </div>
+
+        <div className="flex flex-col p-5 md:min-w-[50rem] w-11/12 h-auto rounded-[1.2rem] mb-5 shadow-lg border items-center justify-center bg-orange-500">
+          <div className="flex flex-col w-full items-center justify-center">
+            <div className="flex w-auto h-10 rounded-[1.2rem] bg-orange-50 items-center justify-center p-6 font-medium text-orange-900">
+              Mais acessível que um café! ☕
+            </div>
+            <p className="mt-8 text-white text-center font-medium">Por menos de R$10,00, Você monta sua Dieta TOTALMENTE PERSONALIZADA.</p>
+            <div className="flex w-full h-10 rounded-[1.2rem] bg-orange-50 items-center justify-center p-6 font-bold mt-8 text-orange-900 cursor-pointer">
+              MONTAR MINHA DIETA
+            </div>
+          </div>
+        </div>
+
+        <div className="flex flex-col pb-10 pt-5 pl-5 pr-5 md:min-w-[50rem] w-11/12 h-auto rounded-[1.2rem] mb-5 shadow-lg border items-center justify-center">
+          <div className="flex flex-col w-full items-center justify-center">
+            <div className="flex rounded-full bg-orange-50 items-center justify-center p-6 font-medium">
+              <PencilSquareIcon className="w-6 h-6 text-orange-500" />
+            </div>
+            <div className="flex items-center justify-center font-bold text-3xl text-gray-700 mt-6">
+              Como Montar?
+            </div>
+            <p className=" text-gray-700 text-center font-medium mt-5">Por menos de R$10,00, Você monta sua Dieta TOTALMENTE PERSONALIZADA.</p>
+
+          </div>
+        </div>
+
+        <div className="flex flex-col pb-10 pt-5 pl-5 pr-5 md:min-w-[50rem] w-11/12 h-auto rounded-[1.2rem] mb-5 shadow-lg border items-center justify-center">
+          <div className="flex flex-col w-full items-center justify-center">
+            <div className="flex rounded-full bg-orange-50 items-center justify-center p-6 font-medium">
+              <ArrowDownTrayIcon className="w-6 h-6 text-orange-500" />
+            </div>
+            <div className="flex items-center justify-center font-bold text-3xl text-gray-700 mt-6">
+              Como receber a Dieta?
+            </div>
+            <p className=" text-gray-700 text-center font-medium mt-5">Após o pagamento, volte ao site e aguarde até 5 minutos para que sua dieta seja gerada. Você poderá visualizá-la ou baixá-la em PDF.</p>
+
+          </div>
+        </div>
+
+        <div className="flex flex-col pb-10 pt-5 pl-5 pr-5 md:min-w-[50rem] w-11/12 h-auto rounded-[1.2rem] mb-10 shadow-lg border items-center justify-center">
+          <div className="flex flex-col w-full items-center justify-center">
+            <div className="flex rounded-full bg-orange-50 items-center justify-center p-6 font-medium">
+              <ClockIcon className="w-6 h-6 text-orange-500" />
+            </div>
+            <div className="flex items-center justify-center font-bold text-3xl text-gray-700 mt-6">
+              Como funciona?
+            </div>
+            <p className=" text-gray-700 text-center font-medium mt-5">O valor é pago apenas uma vez via PIX. No cartão, é uma assinatura recorrente com vários benefícios, incluindo consultas semanais com a nutricionista. Você pode cancelar quando quiser.
+            Sempre baixe sua dieta em pdf antes de gerar outra, pois será substituída.</p>
+
+          </div>
+        </div>
+
+
 
       </div>
 
