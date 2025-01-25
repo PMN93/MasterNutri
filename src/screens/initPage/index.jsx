@@ -128,6 +128,21 @@ const InitPage = () => {
     );
 
     doc.save("dieta.pdf");
+
+    setGenero("");
+    setPeso("");
+    setAltura("");
+    setIdade("");
+    setObjetivo("");
+    setCalorias("");
+    setNivelAtividade("");
+    setTreino("");
+    setHorariosRefeicao("");
+    setChocolate("");
+    setAlimentoCafeManha([]);
+    setAlimentoAlmoco([]);
+    setAlimentoLancheManhaTarde([]);
+    setAlimentoJantar([]);    
   };
 
   const handleItemClickCafe = (item) => {
