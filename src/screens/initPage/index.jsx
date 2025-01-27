@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import mascote from "../../assets/cenoura.png";
-import zap from "../../assets/zap.png";
 import { PencilSquareIcon } from "@heroicons/react/16/solid";
 import { ArrowDownTrayIcon } from "@heroicons/react/16/solid";
 import { ClockIcon } from "@heroicons/react/24/outline";
@@ -29,6 +28,8 @@ const InitPage = () => {
   const [alimentoAlmoco, setAlimentoAlmoco] = useState([]);
   const [alimentoLancheManhaTarde, setAlimentoLancheManhaTarde] = useState([]);
   const [alimentoJantar, setAlimentoJantar] = useState([]);
+  const apiKey = import.meta.env.VITE_API_KEY_GOOGLE
+
 
   const dados = {
     contents: [
@@ -45,7 +46,7 @@ const InitPage = () => {
   function reqIA() {
     axios
       .post(
-        "https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=AIzaSyCOl12PpKregLhm7PQpMgYxrWn_ehLYDsI",
+        `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${apiKey}`,
         dados
       )
       .then(async (response) => {
@@ -288,7 +289,7 @@ const InitPage = () => {
       </div>
 
       <div className="flex flex-col w-screen items-center justify-center">
-        <div className="flex pr-16 pl-16 pt-3 pb-3 w-auto h-auto border border-gray-200 rounded-[1.2rem] mt-2 shadow-sm items-center justify-center flex-wrap space-x-32">
+        {/* <div className="flex pr-16 pl-16 pt-3 pb-3 w-auto h-auto border border-gray-200 rounded-[1.2rem] mt-2 shadow-sm items-center justify-center flex-wrap space-x-32">
           <div className="flex flex-col items-center">
             🍑<p>Ver Dieta</p>
           </div>
@@ -296,7 +297,7 @@ const InitPage = () => {
             <img className="w-5" src={zap}></img>
             <p>Suporte</p>
           </div>
-        </div>
+        </div> */}
 
         <div className="flex flex-col p-5 md:min-w-[50rem] w-96 h-auto rounded-[1.2rem] mt-5 mb-5 shadow-lg border items-center justify-center">
           <div className="flex w-full h-8 border border-gray-200 rounded-[1.2rem] shadow-sm bg-gray-50 mb-5">
@@ -644,7 +645,7 @@ const InitPage = () => {
       </div>
 
       {openBar == true ? (
-        <div className="overflow-x-hidden h-screen w-96 bg-white border font-bold left-0 top-0 z-50 rounded-lg shadow-lg p-4 absolute">
+        <div className="overflow-x-hidden h-[95vh] w-96 bg-white border font-bold left-0 top-0 z-50 rounded-lg shadow-lg p-4 absolute">
           <button
             onClick={() => {
               setOpenBar(false);
