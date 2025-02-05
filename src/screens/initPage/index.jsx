@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import mascote from "../../assets/cenoura.png";
 import { PencilSquareIcon } from "@heroicons/react/16/solid";
 import { ArrowDownTrayIcon } from "@heroicons/react/16/solid";
@@ -11,6 +11,7 @@ import {
 import jsPDF from "jspdf";
 import autoTable from "jspdf-autotable";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const InitPage = () => {
   const [openBar, setOpenBar] = useState(false);
@@ -29,6 +30,7 @@ const InitPage = () => {
   const [alimentoLancheManhaTarde, setAlimentoLancheManhaTarde] = useState([]);
   const [alimentoJantar, setAlimentoJantar] = useState([]);
   const apiKey = import.meta.env.VITE_API_KEY_GOOGLE
+  const navigate = useNavigate()
 
 
   const dados = {
@@ -36,7 +38,7 @@ const InitPage = () => {
       {
         parts: [
           {
-            text: `Olá, você é uma nutricionista experiente em dietas esportivas, e eu preciso de uma dieta balanceada baseando-se nas informações abaixo, sou ${genero}, tenho ${idade} anos, peso ${peso} quilos, tenho alturea de ${altura} e quero ${objetivo}, minha dieta precisa ser de ${calorias}, confio em você para verificar da melhor forma, e preciso que a dieta seja dividida em 5 partes, sendo ela café da manhã, lanche da manhã, almoço, lanche da tarde e jantar, sendo 3 opções diferentes de cada refeição, por exemplo 3 opções de café da manhã, 3 de lanche da manhã, 3 de almoço, 3 de lanche da tarde e 3 de jantar, coloque na frente do nome o número da opção e quantas calorias aquela refeição terá, por exemplo café da manhã 1 - 300 cal, café da manhã 2 - 150 cal  e assim por diante. Vou mostrar alguns alimentos que tenho preferência em cada refeição para que você adapte se possível o consumo deles, claro, mantendo sempre a base calórica necessária conforme meu objetivo. No café da manhã eu gosto de ${alimentoCafeManha}, no lanche da manhã gosto de ${alimentoLancheManhaTarde}, no almoço gosto de ${alimentoAlmoco}, o lanche da tarde pode conter os mesmo ingredientes do lanche da manhã, e no jantar gosto de ${alimentoJantar}. Eu sou ${nivelAtividade}, Quero que os horário das refeições sejam ${horariosRefeicao}. Chocolate na dieta? ${chocolate}. Preciso que a resposta seja em formato de lista sem formatação html e json, sem usar \n no fim da resposta, quero apenas que use ; entre os nomes das refeições, exemplo café da manhã, almoço; e entre os alimentos use , para separar, não me manda mais nenhuma informação nem mesmo observação, mantenha como resposta o exemplo a seguir 'Café da manhã: Crepioca com 100g de frango desfiado, 1/2 xícara de frutas vermelhas, café (sem açúcar), 1 fatia de pão integral com 1 ovo cozido, 1 pote de iogurte desnatado; Lanche da manhã: 30g de whey protein, 200ml de leite desnatado, 1/2 xícara de frutas (maçã, pera), 1 ovo cozido, 200ml de suco de laranja natural; Almoço: 150g de frango grelhado, 100g de patinho grelhado, 1/2 xícara de batata doce cozida, salada variada (alface, tomate, pepino, 1 colher de sopa de azeite), 1 ovo cozido; Lanche da tarde: 30g de whey protein, 200ml de leite desnatado, 1/2 xícara de frutas (morango, banana), 1 ovo cozido, 200ml de suco de laranja natural; Jantar: Salada variada (alface, tomate, pepino, 1 colher de sopa de azeite), 200ml de suco de abacaxi, 1/2 xícara de batata doce cozida, 100g de frango grelhado, 50g de patinho grelhado, 1 quadradinho de chocolate 70% cacau (Trento)\n'`,
+            text: `Olá, você é uma nutricionista experiente em dietas esportivas, e eu preciso de uma dieta balanceada baseando-se nas informações abaixo, sou ${genero}, tenho ${idade} anos, peso ${peso} quilos, tenho alturea de ${altura} e quero ${objetivo}, minha dieta precisa ser de ${calorias}, confio em você para verificar da melhor forma, e preciso que a dieta seja dividida em 5 partes, sendo ela café da manhã, lanche da manhã, almoço, lanche da tarde e jantar, sendo 3 opções diferentes de cada refeição, por exemplo 3 opções de café da manhã, 3 de lanche da manhã, 3 de almoço, 3 de lanche da tarde e 3 de jantar, coloque na frente do nome o número da opção e quantas calorias aquela refeição terá, por exemplo café da manhã 1 - 300 cal, café da manhã 2 - 150 cal  e assim por diante. Vou mostrar alguns alimentos que tenho preferência em cada refeição para que você adapte se possível o consumo deles, claro, mantendo sempre a base calórica necessária conforme meu objetivo. No café da manhã eu gosto de ${alimentoCafeManha}, no lanche da manhã gosto de ${alimentoLancheManhaTarde}, no almoço gosto de ${alimentoAlmoco}, o lanche da tarde pode conter os mesmo ingredientes do lanche da manhã, e no jantar gosto de ${alimentoJantar}. Eu sou ${nivelAtividade}, Quero que os horário das refeições sejam ${horariosRefeicao}. Chocolate na dieta? ${chocolate}. Preciso que a resposta seja em formato de lista sem formatação html e json, sem usar \n no fim da resposta, quero apenas que use ; entre os nomes das refeições, exemplo café da manhã, almoço; e entre os alimentos use , para separar, não me manda mais nenhuma informação nem mesmo observação, mantenha como resposta o exemplo a seguir 'Café da manhã: Crepioca com 100g de frango desfiado, 1/2 xícara de frutas vermelhas, café (sem açúcar), 1 fatia de pão integral com 1 ovo cozido, 1 pote de iogurte desnatado; Lanche da manhã: 30g de whey protein, 200ml de leite desnatado, 1/2 xícara de frutas (maçã, pera), 1 ovo cozido, 200ml de suco de laranja natural; Almoço: 150g de frango grelhado, 100g de patinho grelhado, 1/2 xícara de batata doce cozida, salada variada (alface, tomate, pepino, 1 colher de sopa de azeite), 1 ovo cozido; Lanche da tarde: 30g de whey protein, 200ml de leite desnatado, 1/2 xícara de frutas (morango, banana), 1 ovo cozido, 200ml de suco de laranja natural; Jantar: Salada variada (alface, tomate, pepino, 1 colher de sopa de azeite), 200ml de suco de abacaxi, 1/2 xícara de batata doce cozida, 100g de frango grelhado, 50g de patinho grelhado, 1 quadradinho de chocolate 70% cacau (Trento). Traga também minha TMB baseando-se nas informações passadas\n'`,
           },
         ],
       },
@@ -660,7 +662,7 @@ const InitPage = () => {
             <p>Olá, Cliente 💛</p>
           </div>
           <div className="flex text-xl text-center items-center justify-center w-full mt-6 font-normal text-slate-500">
-            <p>pedro_mora_neto@hotmail.com</p>
+            <p>{localStorage.getItem("Email")}</p>
           </div>
           <div className="flex text-lg text-center items-center justify-center w-full mt-12 font-normal text-slate-500">
             <p>Ticket: 0</p>
@@ -683,7 +685,10 @@ const InitPage = () => {
           <div className="w-full border-b-2 mt-20"></div>
           <div className="flex text-base text-center w-full mt-8 mb-2 text-red-500 font-semibold px-5 cursor-pointer items-center">
             <ArrowRightStartOnRectangleIcon className="w-6 h-6 text-red-500 mr-1" />{" "}
-            Sair
+            <button onClick={() => {
+              localStorage.setItem("Email", "")
+              navigate("/")
+            }}>Sair</button>
           </div>
         </div>
       ) : (
