@@ -5,6 +5,7 @@ import { createBrowserRouter } from 'react-router-dom'
 import React from "react";
 import { Navigate } from "react-router-dom";
 import { Outlet } from "react-router-dom";
+import Plans from '../screens/plans/index.jsx';
 
 
 
@@ -22,7 +23,7 @@ export default PrivateRoute;
 export const router = createBrowserRouter([
   {
     path: '/',
-    element: <Login />,
+    element: <Plans/>,
   },
   {
     path: '/signup',
