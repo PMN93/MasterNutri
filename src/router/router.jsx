@@ -8,6 +8,8 @@ import { Outlet } from "react-router-dom";
 import Plans from '../screens/plans/index.jsx';
 import Diet from '../screens/diet/index.jsx';
 import TestePost from '../screens/testePost/index.jsx';
+import InitExerc from '../screens/initExerc/index.jsx';
+import Exerc from '../screens/exerc/index.jsx';
 
 
 
@@ -25,7 +27,7 @@ export default PrivateRoute;
 export const router = createBrowserRouter([
   {
     path: '/',
-    element: <TestePost/>,
+    element: <Exerc/>,
   },
   {
     path: '/signup',

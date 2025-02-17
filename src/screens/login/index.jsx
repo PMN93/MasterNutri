@@ -1,7 +1,10 @@
 import React, { createContext, useState } from "react";
 import mascote from "../../assets/cenoura.png";
 import { Link, useNavigate } from "react-router-dom";
-import { useSignInWithEmailAndPassword, useSendPasswordResetEmail } from "react-firebase-hooks/auth";
+import {
+  useSignInWithEmailAndPassword,
+  useSendPasswordResetEmail,
+} from "react-firebase-hooks/auth";
 import { auth } from "../../services/firebaseConfig";
 import { sendPasswordResetEmail } from "firebase/auth";
 
@@ -10,7 +13,7 @@ const Login = () => {
   const [email, setEmail] = useState("");
   const [signInWithEmailAndPassword, user, loading, error] =
     useSignInWithEmailAndPassword(auth);
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   const handleLogin = async () => {
     try {
@@ -19,8 +22,8 @@ const Login = () => {
 
       if (user) {
         console.log("Usuário logado:", user.user.email);
-        localStorage.setItem("Email", user.user.email)
-        navigate("/initpage")
+        localStorage.setItem("Email", user.user.email);
+        navigate("/initpage");
       }
     } catch (error) {
       console.error("Erro ao fazer login:", error.message);
@@ -63,17 +66,20 @@ const Login = () => {
       </div>
       <div className="flex flex-row mt-6 gap-2">
         <p>Esqueceu sua senha?</p>
-        <a onClick={() => {
-          sendPasswordResetEmail(auth, "pedro.mora.neto1993@gmail.com")
-        }} className="text-orange-500 underline cursor-pointer">
+        <a
+          onClick={() => {
+            sendPasswordResetEmail(auth, "pedro.mora.neto1993@gmail.com");
+          }}
+          className="text-orange-500 underline cursor-pointer"
+        >
           Redefinir
         </a>
       </div>
       <div className="flex flex-row mt-8 gap-2">
         {/* <Link to={"/signup"}> */}
-          <button className="rounded-md p-2 text-orange-500 bg-transparent border-solid border-2 border-orange-500 font-bold ">
-            CRIAR UMA CONTA
-          </button>
+        <button className="rounded-md p-2 text-orange-500 bg-transparent border-solid border-2 border-orange-500 font-bold ">
+          CRIAR UMA CONTA
+        </button>
         {/* </Link> */}
       </div>
     </div>
