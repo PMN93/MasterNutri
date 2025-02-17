@@ -6,6 +6,8 @@ import React from "react";
 import { Navigate } from "react-router-dom";
 import { Outlet } from "react-router-dom";
 import Plans from '../screens/plans/index.jsx';
+import Diet from '../screens/diet/index.jsx';
+import TestePost from '../screens/testePost/index.jsx';
 
 
 
@@ -23,7 +25,7 @@ export default PrivateRoute;
 export const router = createBrowserRouter([
   {
     path: '/',
-    element: <Plans/>,
+    element: <TestePost/>,
   },
   {
     path: '/signup',
