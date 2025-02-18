@@ -89,7 +89,7 @@ const Exerc = () => {
           {id}
         </p>
         <div className="flex flex-row w-full justify-center items-center">
-          {/* <p className="font-bold text-5xl uppercase">{grupo}</p> */}
+          <p className="font-bold text-5xl uppercase">{grupo}</p>
         </div>
 
         {user &&
