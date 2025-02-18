@@ -23,7 +23,8 @@ const Login = () => {
       if (user) {
         console.log("Usuário logado:", user.user.email);
         localStorage.setItem("Email", user.user.email);
-        navigate("/initpage");
+        // navigate("/initpage");
+        navigate("/initexerc");
       }
     } catch (error) {
       console.error("Erro ao fazer login:", error.message);

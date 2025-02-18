@@ -27,7 +27,7 @@ export default PrivateRoute;
 export const router = createBrowserRouter([
   {
     path: '/',
-    element: <InitExerc/>,
+    element: <Login/>,
   },
   {
     path: '/signup',
@@ -40,6 +40,10 @@ export const router = createBrowserRouter([
       {
         path: '/initpage',
         element: <InitPage />,
+      },
+      {
+        path: '/initexerc',
+        element: <InitExerc />,
       },
       {
         path: '/exerc',
