@@ -110,7 +110,7 @@ const Exerc = () => {
                         <Dialog.Title className="m-0 text-mauve-900 text-lg font-medium">
                           {item.exc}
                         </Dialog.Title>
-                        <img src={`../../../public/${item.exc}.gif`} alt="loading..."  className="mt-6"/>
+                        <img src={`/${item.exc}.gif`} alt="loading..."  className="mt-6"/>
                       </Dialog.Content>
                     </Dialog.Portal>
                   </Dialog.Root>
