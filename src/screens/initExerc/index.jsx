@@ -41,7 +41,7 @@ useEffect(() => {
             <div
               className="bg-white dark:bg-gray-800 w-64 h-64 rounded-3xl flex flex-col border border-gray-300 dark:border-gray-700 shadow-xl hover:scale-105 hover:shadow-2xl transition-transform duration-300 cursor-pointer"
               onClick={() => {
-                localStorage.setItem("grupo", group.name);
+                localStorage.setItem("grupo", group.name.toLowerCase());
                 localStorage.setItem("id", group.id);
               }}
             >

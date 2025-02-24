@@ -12,7 +12,7 @@ import { Link } from "react-router-dom";
 const Exerc = () => {
   const db = getFirestore();
   const userCollectionRef = collection(db, "Clientes");
-  const userId = "nataliacelso@yahoo.com.br";
+  const userId = localStorage.getItem("Email");
   const grupo = localStorage.getItem("grupo");
   const id = localStorage.getItem("id");
 
