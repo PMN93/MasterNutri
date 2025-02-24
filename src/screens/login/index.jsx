@@ -1,4 +1,4 @@
-import React, { createContext, useState } from "react";
+import React, { createContext, useEffect, useState } from "react";
 import mascote from "../../assets/cenoura.png";
 import { Link, useNavigate } from "react-router-dom";
 import {
@@ -14,6 +14,7 @@ const Login = () => {
   const [signInWithEmailAndPassword, user, loading, error] =
     useSignInWithEmailAndPassword(auth);
   const navigate = useNavigate();
+  // const [theme, setTheme] = useState(localStorage.getItem("theme") || "light");
 
   const handleLogin = async () => {
     try {
@@ -31,9 +32,24 @@ const Login = () => {
     }
   };
 
+  // useEffect(() => {
+  //   if (theme === "dark") {
+  //     document.documentElement.classList.add("dark");
+  //   } else {
+  //     document.documentElement.classList.remove("dark");
+  //   }
+  //   localStorage.setItem("theme", theme);
+  // }, [theme]);
+
   return (
     <div className="flex flex-col w-screen h-screen justify-center items-center">
       {/* <img className="w-48 h-48" src={mascote}></img> */}
+      {/* <div onClick={() => {
+        setTheme("light")
+      }}>Light</div>
+      <div onClick={() => {
+        setTheme("dark")
+      }}>Dark</div> */}
       <div className="flex flex-col mt-2 items-center">
         <h1 className="text-3xl font-bold">Entre com sua conta</h1>
       </div>
@@ -57,7 +73,7 @@ const Login = () => {
       </div>
       <div className="flex flex-col w-96 mt-8">
         <button
-          className="bg-orange-500 text-white p-2 rounded-md"
+          className="bg-orange-500 text-white p-2 rounded-md dark:bg-green-500"
           onClick={() => {
             handleLogin();
           }}
@@ -78,7 +94,7 @@ const Login = () => {
       </div>
       <div className="flex flex-row mt-8 gap-2">
         {/* <Link to={"/signup"}> */}
-        <button className="rounded-md p-2 text-orange-500 bg-transparent border-solid border-2 border-orange-500 font-bold ">
+        <button className="rounded-md p-2 text-orange-500 bg-transparent border-solid border-2 border-orange-500 font-bold">
           CRIAR UMA CONTA
         </button>
         {/* </Link> */}
